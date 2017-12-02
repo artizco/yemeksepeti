@@ -1,6 +1,5 @@
 package com.yasince.yemeksepeti.data.network
 
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.yasince.yemeksepeti.data.network.request.LoginRequest
 import com.yasince.yemeksepeti.data.network.response.LoginResponse
 import com.yasince.yemeksepeti.data.network.response.UserProfileResponse
@@ -23,10 +22,7 @@ class AppApiHelper : ApiHelper {
     init {
         if (retrofit == null) {
 
-            val okHttpClient = OkHttpClient.Builder()
-                    .addNetworkInterceptor(StethoInterceptor())
-                    .build()
-
+            val okHttpClient = OkHttpClient.Builder().build()
 
             retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
