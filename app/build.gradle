@@ -31,13 +31,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    /* allow using java 8 lambda */
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
     }
 
-    /* fixes espresso conflict with supportAnnotation and androidSupport new versions */
     configurations.all {
         resolutionStrategy {
             force rootProject.ext.androidTestLibraries.supportAnnotations
@@ -49,9 +47,6 @@ android {
     }
 }
 
-
-
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation rootProject.ext.libraries.kotlin
@@ -61,32 +56,21 @@ dependencies {
     implementation rootProject.ext.libraries.recyclerView
     implementation rootProject.ext.libraries.designSupport
     implementation rootProject.ext.libraries.cardView
+    implementation rootProject.ext.libraries.constraintLayout
 
     //Network
     implementation rootProject.ext.libraries.retrofit
     implementation rootProject.ext.libraries.retrofitGson
     implementation rootProject.ext.libraries.picasso
 
-    //Dependency injection
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    annotationProcessor rootProject.ext.aptLibraries.butterKnifeCompiler
-    implementation rootProject.ext.libraries.butterKnife
-    annotationProcessor rootProject.ext.aptLibraries.daggerCompiler
-    implementation rootProject.ext.libraries.dagger
-
     //Utils
     implementation rootProject.ext.libraries.logger
     implementation rootProject.ext.libraries.gson
-    implementation rootProject.ext.libraries.javax
-    implementation rootProject.ext.libraries.stetho
-    implementation rootProject.ext.libraries.stethoOkhttp
 
     //Unit Test
     testImplementation rootProject.ext.testLibraries.jUnit
     testImplementation rootProject.ext.testLibraries.roboelectric
-    testImplementation rootProject.ext.testLibraries.retrofitTest
     testImplementation rootProject.ext.testLibraries.mockito
-    testImplementation rootProject.ext.testLibraries.mockitoCore
 
     //UI Test
     androidTestImplementation rootProject.ext.androidTestLibraries.espressoCore

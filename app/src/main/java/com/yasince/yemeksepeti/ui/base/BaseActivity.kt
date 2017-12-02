@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.widget.Toast
 
-import butterknife.ButterKnife
 import com.yasince.yemeksepeti.R
 import kotlinx.android.synthetic.main.appbar.*
 
@@ -27,7 +26,6 @@ open class BaseActivity : AppCompatActivity(), MvpView {
 
     override fun setContentView(layoutResID: Int) {
         super.setContentView(layoutResID)
-        ButterKnife.bind(this)
     }
 
     override fun onStart() {

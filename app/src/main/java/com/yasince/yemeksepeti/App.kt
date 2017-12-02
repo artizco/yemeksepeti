@@ -1,7 +1,6 @@
 package com.yasince.yemeksepeti
 
 import android.app.Application
-import com.facebook.stetho.Stetho
 import com.yasince.yemeksepeti.data.AppDataManager
 import com.yasince.yemeksepeti.data.DataManager
 import com.yasince.yemeksepeti.data.db.AppDbHelper
@@ -20,6 +19,5 @@ class App : Application() {
         val apiHelper = AppApiHelper()
         val dbHelper = AppDbHelper(applicationContext)
         dataManager = AppDataManager(applicationContext, spHelper, apiHelper, dbHelper)
-        Stetho.initializeWithDefaults(this)
     }
 }
