@@ -8,6 +8,9 @@ import com.yasince.yemeksepeti.ui.listeners.LoginListener
 class LoginPresenter<V : LoginMvpView>(dataManager: DataManager) : BasePresenter<V>(dataManager),
         LoginMvpPresenter<V> {
 
+    private val MIN_USERNAME_LENGHT = 3
+    private val MIN_PASSWORD_LENGHT = 4
+
     override fun onAttach(mvpView: V) {
         this.mvpView = mvpView
     }
@@ -43,10 +46,10 @@ class LoginPresenter<V : LoginMvpView>(dataManager: DataManager) : BasePresenter
     }
 
     override fun validateUsername(username: String): Boolean {
-        return username.length > 3
+        return username.length > MIN_USERNAME_LENGHT
     }
 
     override fun validatePassword(password: String): Boolean {
-        return password.length > 4
+        return password.length > MIN_PASSWORD_LENGHT
     }
 }
