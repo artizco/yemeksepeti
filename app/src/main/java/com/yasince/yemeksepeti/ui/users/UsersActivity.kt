@@ -33,8 +33,6 @@ class UsersActivity : BaseActivity(), UsersMvpView, UserItemListener {
         adapter = UserAdapter(users, this)
         usersContainerRv.adapter = adapter
         val lm = LinearLayoutManager(this)
-        val decor = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-        usersContainerRv.addItemDecoration(decor)
         usersContainerRv.layoutManager = lm
     }
 
