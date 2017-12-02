@@ -1,0 +1,11 @@
+{
+  "profile": {
+    "id": 0,
+    "name": "James",
+    "lastName": "Gosling",
+    "pic": "https://goo.gl/vkQPh9",
+    "address": "Fifth Helena Drive",
+    "phone": "+152241231342",
+    "birthDate": "19.05.1955"
+  }
+}

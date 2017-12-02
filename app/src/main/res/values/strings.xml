@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- Common-->
+    <string name="app_name">Yemeksepeti</string>
+    <string name="service_error">Beklenmedik bir hata oluştu</string>
+
+    <!-- Login-->
+    <string name="login">Giriş Yap</string>
+    <string name="username">Kullanıcı Adı</string>
+    <string name="password">Şifre</string>
+    <string name="invalid_username">Geçersiz kullanıcı adı</string>
+    <string name="invalid_password">Geçersiz şifre</string>
+
+    <!-- Users-->
+    <string name="users">Kullanıcılar</string>
+    <string name="no_users_found">Kullanıcı bulunamadı</string>
+
+    <!-- Profile-->
+    <string name="profile">Profil</string>
+    <string name="address">Adres</string>
+    <string name="phone">Telefon</string>
+    <string name="invalid_user_id">Geçersiz kullanıcı</string>
+
+</resources>
