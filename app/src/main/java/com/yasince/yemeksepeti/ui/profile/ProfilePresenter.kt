@@ -12,7 +12,7 @@ class ProfilePresenter<V : ProfileMvpView>(dataManager: DataManager) : BasePrese
     }
 
     override fun getUserProfile(userId: String) {
-        if (userId == null || userId.isEmpty()) {
+        if (userId.isEmpty()) {
             mvpView?.showUserIdError()
         }
         dataManager.getUserProfile(userId, userProfileListener)
