@@ -19,7 +19,7 @@ import org.junit.runner.RunWith
 class AppFullFlowTest : BaseTest() {
 
     @get:Rule
-    val activityRule: ActivityTestRule<LoginActivity> = ActivityTestRule(LoginActivity::class.java)
+    private val activityRule: ActivityTestRule<LoginActivity> = ActivityTestRule(LoginActivity::class.java)
 
     private lateinit var usernameError: String
     private lateinit var passwordError: String
@@ -88,14 +88,14 @@ class AppFullFlowTest : BaseTest() {
         //check empty name and password
         onView(withId(R.id.loginSubmitBtn)).perform(click())
         onView(withId(R.id.loginUsernameEt)).check(matches(hasErrorText(usernameError)))
-        sleepLong()
+        sleepShort()
 
         //check invalid name
         onView(withId(R.id.loginUsernameEt)).perform(typeText(INVALID_NAME), closeSoftKeyboard())
         onView(withId(R.id.loginSubmitBtn)).perform(click())
         onView(withId(R.id.loginUsernameEt)).check(matches(hasErrorText(usernameError)))
         onView(withId(R.id.loginUsernameEt)).perform(clearText())
-        sleepLong()
+        sleepShort()
 
         //check invalid password
         onView(withId(R.id.loginUsernameEt)).perform(typeText(NAME), closeSoftKeyboard())
@@ -104,7 +104,7 @@ class AppFullFlowTest : BaseTest() {
         onView(withId(R.id.loginPasswordEt)).check(matches(hasErrorText(passwordError)))
         onView(withId(R.id.loginUsernameEt)).perform(clearText())
         onView(withId(R.id.loginPasswordEt)).perform(clearText())
-        sleepLong()
+        sleepShort()
 
         //check invalid name and password
         onView(withId(R.id.loginUsernameEt)).perform(typeText(INVALID_NAME), closeSoftKeyboard())
@@ -112,7 +112,6 @@ class AppFullFlowTest : BaseTest() {
         onView(withId(R.id.loginSubmitBtn)).perform(click())
         onView(withId(R.id.loginUsernameEt)).check(matches(hasErrorText(usernameError)))
     }
-
 
     companion object {
         val NAME: String = "Lorem"
@@ -123,11 +122,4 @@ class AppFullFlowTest : BaseTest() {
         val ADDRESS: String = "Lorem"
         val USER_INDEX: Int = 5
     }
-
-//    private fun checkToast(stringRes: Int) {
-//        onView(withText(stringRes))
-//                .inRoot(RootMatchers.withDecorView(Matchers
-//                        .not(Matchers.`is`(activityRule.activity.window.decorView))))
-//                .check(matches(isDisplayed()))
-//    }
 }
