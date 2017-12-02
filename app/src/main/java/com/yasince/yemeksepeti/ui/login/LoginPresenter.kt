@@ -34,7 +34,7 @@ class LoginPresenter<V : LoginMvpView>(dataManager: DataManager) : BasePresenter
                 return
             }
             mvpView?.openUsersPage()
-            dataManager.saveToken(token!!)
+            dataManager.saveToken(token)
         }
 
         override fun onError(errorMessage: String) {
@@ -43,10 +43,10 @@ class LoginPresenter<V : LoginMvpView>(dataManager: DataManager) : BasePresenter
     }
 
     override fun validateUsername(username: String): Boolean {
-        return username != null && username.length > 3
+        return username.length > 3
     }
 
     override fun validatePassword(password: String): Boolean {
-        return password != null && password.length > 4
+        return password.length > 4
     }
 }
