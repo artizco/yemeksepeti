@@ -24,13 +24,26 @@ android {
     lintOptions {
         abortOnError false
     }
+    signingConfigs {
+        release {
+            keyAlias 'yemek'
+            keyPassword 'yemek12'
+            storeFile file('yemek.keystore')
+            storePassword 'yemek12'
+        }
+    }
 
     buildTypes {
         release {
-            minifyEnabled false
+            signingConfig signingConfigs.release
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled false
+        }
     }
+
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
